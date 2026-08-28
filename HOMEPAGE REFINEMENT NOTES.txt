@@ -1,0 +1,35 @@
+FACKTS AFRICA GROUP — HOMEPAGE PREMIUM MEDIA PASS
+28 August 2026
+
+This package refines the existing homepage only. It does not replace the site architecture or reset the project.
+
+Implemented:
+- One clear, single-image hero with more restrained overlays and typography.
+- Hoops and Music changed from repeated full-screen image walls into premium editorial split panels.
+- Curated image use so major homepage sections use more distinct photography.
+- Rounded/editorial image containers, cleaner cropping, subtle depth and more controlled overlays.
+- New FACKTS-native Featured Watch area.
+- YouTube is click-to-load: no YouTube iframe is loaded before the visitor presses Play.
+- Playback opens inside a FACKTS-styled modal, with YouTube available only as a secondary external destination.
+- Live player-profile and FACKTS Music evidence gateways remain connected to the vertical platforms.
+- VERSUS collage refined into a clean diptych instead of rough rotated photo blocks.
+- People, Stories, Partnerships and upcoming-property sections given more breathing room and cleaner media rhythm.
+- Mobile layouts refined for cards, media modal, portals, stories, experiences and partner panel.
+
+IMPORTANT VIDEO NOTE
+The current Featured Watch facade uses the FACKTS Hoops YouTube username (facktshoops) and YouTube's user_uploads embed mode. Specific video IDs can be added later in lib/content.js under featuredWatch for exact curated videos. The component already supports youtubeId without any redesign.
+
+Key live ecosystem URLs:
+Hoops: https://hoops.facktsafrica.co.ke
+Music: https://music.facktsafrica.co.ke
+Hoops YouTube: https://www.youtube.com/@facktshoops
+
+Replacement workflow:
+Extract the contents of this ZIP directly into the current FACKTS Africa Website folder and choose Replace files in destination.
+Then run:
+npm run dev
+
+When approved:
+git add .
+git commit -m "Refine FACKTS homepage media experience"
+git push
