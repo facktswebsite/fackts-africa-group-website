@@ -1,0 +1,47 @@
+
+FACKTS AFRICA GROUP WEBSITE — CREATIVE RESET
+=============================================
+
+THIS IS THE CONTINUED FACKTS WEBSITE CODEBASE, REBUILT VISUALLY.
+
+RUN LOCALLY
+1. Extract the folder.
+2. Open PowerShell inside: FACKTS Africa Website
+3. Run:
+   npm install
+4. Then:
+   npm run dev
+5. Open:
+   http://localhost:3000
+
+ROUTES
+/
+/hoops
+/music
+/stories
+/stories/[slug]
+/experiences
+/experiences/[slug]
+/people
+/people/[slug]
+/about
+/partners
+/contact
+
+LEGACY ROUTE
+/work-with-fackts redirects to /partners so older links do not break.
+
+ASSETS
+/public/fackts/brand/
+/public/fackts/hoops/
+/public/fackts/music/
+/public/fackts/people/
+/public/fackts/events/
+
+The photography inside these folders was organized and optimized from the FACKTS image ZIP supplied in this chat.
+
+PEOPLE PAGE
+The supplied photographs did not include confirmed identity metadata. The people route therefore uses neutral profile placeholders such as PLAYER 01 rather than inventing names. Replace them in lib/content.js once names, roles and cities are confirmed.
+
+CONTACT FORM
+The form validates locally through app/api/contact/route.js and logs the inquiry in the server terminal. Connect it to your email/CRM before live deployment.

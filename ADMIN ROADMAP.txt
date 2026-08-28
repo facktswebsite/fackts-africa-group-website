@@ -1,0 +1,38 @@
+
+FACKTS WEBSITE — ADMIN ROADMAP
+==============================
+
+CURRENT EDITING MODEL
+All public content is centralized in:
+  lib/content.js
+
+That file now contains:
+- contact details
+- platform URLs
+- management list
+- stories
+- experiences/statuses
+- city expansion vision
+- public profile placeholders
+
+RECOMMENDED ADMIN PHASE (AFTER THE VISUAL DESIGN IS LOCKED)
+Use the existing Supabase stack rather than inventing another backend.
+
+Recommended protected route:
+  /admin
+
+Recommended editable tables:
+1. site_settings
+   email, phone, address, platform links
+2. people
+   name, role, city, bio, profile image, display order, published
+3. stories
+   title, slug, category, city, image, excerpt, body, published_at, status
+4. experiences
+   title, slug, type, city, date, status, image, description, published
+5. homepage_features
+   ordering / visibility of selected stories, people and experiences
+
+Why not build the full admin right now?
+The visual system is still being refined. Lock the public experience first, then connect the
+content model to Supabase so the FACKTS team can edit content without touching code.

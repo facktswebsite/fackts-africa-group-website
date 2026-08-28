@@ -1,0 +1,35 @@
+
+FACKTS AFRICA GROUP — QUICK EDIT GUIDE
+======================================
+
+MAIN CONTENT DATA
+lib/content.js
+
+HOMEPAGE
+app/page.js
+
+MASTER VISUAL SYSTEM
+app/globals.css
+
+HERO MOTION / BASKETBALL / MUSIC COLLISION
+components/CultureHero.js
+
+NAVIGATION
+components/Header.js
+
+REAL ASSETS
+public/fackts/
+
+PARTNER PAGE
+app/partners/page.js
+
+CONTACT FORM
+components/ContactForm.js
+app/api/contact/route.js
+
+
+CONTACT / PLATFORM LINKS / MANAGEMENT / EVENT STATUS
+lib/content.js
+
+FUTURE ADMIN PLAN
+ADMIN ROADMAP.txt

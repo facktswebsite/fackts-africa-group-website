@@ -1,0 +1,20 @@
+
+import Image from "next/image";
+import Link from "next/link";
+import { siteConfig } from "@/lib/content";
+
+export const metadata = { title: "FACKTS Music" };
+
+export default function MusicPage() {
+  return <main>
+    <section className="page-hero"><div className="page-hero-media"><Image src="/fackts/music/hero-booth.webp" alt="Artist at a studio microphone" fill priority sizes="100vw" /></div><div className="music-hero-rec">● REC / FACKTS MUSIC</div><div className="shell page-hero-content"><div className="eyebrow">FACKTS Music</div><h1 className="section-title page-title">EVERY SOUND HAS A STORY.</h1><p className="body-xl page-desc">The artist is visible. The producer, engineer, studio, project and creative system around the sound deserve visibility too.</p><div style={{marginTop:28}}><a className="btn-line" href={siteConfig.musicPlatform} target="_blank" rel="noreferrer">Open the FACKTS Music platform <span className="arrow">↗</span></a></div></div></section>
+
+    <section className="music-console"><div className="console-copy"><div className="eyebrow">Session view</div><h2 className="section-title" style={{marginTop:18}}>THE BOOTH IS<br/>A REAL PLACE.</h2><p className="body-xl">No music-note icons pretending to be a music world. FACKTS Music starts from the room, the people, the process and the credits.</p><div className="timeline"><div className="timeline-row"><span className="time">00:00</span><b>ARTIST ENTERS THE ROOM</b><span className="tag">SESSION</span></div><div className="timeline-row"><span className="time">00:42</span><b>PRODUCER BUILDS THE WORLD</b><span className="tag">BEAT</span></div><div className="timeline-row"><span className="time">01:18</span><b>CAMERA CATCHES THE PROCESS</b><span className="tag">STORY</span></div><div className="timeline-row"><span className="time">02:04</span><b>THE CREDITS BECOME VISIBLE</b><span className="tag">CULTURE</span></div></div></div><div className="console-image"><Image src="/fackts/music/studio-gear.webp" alt="Music production monitor and studio speaker" fill sizes="(max-width:1180px) 100vw, 50vw" /></div></section>
+
+    <section className="booth-gallery"><div className="shell"><div className="eyebrow">Inside the room</div><h2 className="section-title" style={{marginTop:18}}>PEOPLE BEFORE<br/>PLAYLISTS.</h2><div className="booth-grid"><div className="big-shot"><Image src="/fackts/music/booth-mic.webp" alt="Creative in the booth" fill sizes="(max-width:1180px) 100vw, 58vw" /></div><div className="stack"><div className="small-shot"><Image src="/fackts/music/studio-session.webp" alt="Studio session" fill sizes="(max-width:1180px) 100vw, 42vw" /></div><div className="small-shot"><Image src="/fackts/music/artist-duo.webp" alt="Music creatives together" fill sizes="(max-width:1180px) 100vw, 42vw" /></div></div></div></div></section>
+
+    <section className="credit-roll"><div className="shell"><div className="eyebrow">Credits Roll thinking</div><h2 className="section-title" style={{marginTop:18}}>IF THEIR WORK IS<br/>EVERYWHERE, THEIR<br/>NAME SHOULD BE TOO.</h2><div className="credit-list"><div className="credit-row"><strong>PRODUCERS</strong><span>BEATS / ARRANGEMENT / SOUND</span><span>VISIBLE</span></div><div className="credit-row"><strong>ENGINEERS</strong><span>RECORD / MIX / MASTER</span><span>VISIBLE</span></div><div className="credit-row"><strong>VIDEOGRAPHERS</strong><span>FRAME / LIGHT / MOVEMENT</span><span>VISIBLE</span></div><div className="credit-row"><strong>CREATIVE DIRECTORS</strong><span>WORLD / LANGUAGE / POSITION</span><span>VISIBLE</span></div></div><div style={{marginTop:32}}><Link href="/stories/credits-roll" className="btn-line">Explore Credits Roll <span className="arrow">→</span></Link></div></div></section>
+
+    <section className="final-cta"><div className="inner"><div className="meta">FACKTS MUSIC</div><h2 className="section-title final-title">BUILD THE WORLD AROUND THE SOUND.</h2><div className="final-links"><Link className="primary" href="/partners">Build a music partnership ↗</Link><Link href="/stories">Open music stories</Link></div></div></section>
+  </main>;
+}
