@@ -1,0 +1,36 @@
+FACKTS AFRICA GROUP — FIVE-BOOK REFINEMENT UPDATE
+
+This update is designed to be extracted directly into the existing FACKTS Africa Website project folder and allowed to replace matching files.
+
+PUBLIC CHANGES
+- Reduced oversized typography and moved the visual hierarchy toward a more executive editorial system.
+- Added Inter Tight + IBM Plex Mono through Next.js font handling.
+- Kept the single-photo hero and real FACKTS photography.
+- Added a Proof / Live Ecosystems section that routes evidence to real FACKTS destinations instead of inventing vanity metrics.
+- Player evidence routes to https://hoops.facktsafrica.co.ke/players
+- Basketball video evidence routes to https://www.youtube.com/@facktshoops
+- Music routes to https://music.facktsafrica.co.ke
+- A live music creator profile is linked at https://music.facktsafrica.co.ke/people/27ccbdf0-6561-4c13-a846-3844c2deab40
+- Main Hoops CTA routes to https://hoops.facktsafrica.co.ke
+- Main Music CTA routes to https://music.facktsafrica.co.ke
+- Anonymous player/artist placeholder profiles are hidden from the corporate People page.
+- People now focuses on FACKTS management/captains/operators and routes wider talent discovery into Hoops and Music.
+- Stories are positioned as archive/evidence; upcoming properties are clearly separated under What's Next.
+- Court Takeovers remain marked for late September / early October 2026.
+- VERSUS, Credits Roll and FACKTS 3x3 remain marked Coming Soon.
+- Removed the public five-book / internal operating logic from About.
+- Rewrote About around people, cultural infrastructure, why hoops and music belong together, and continental ambition.
+- Removed defensive expansion language; Nairobi is stated as the current operating base and other cities as expansion horizon.
+- Reframed Partners around customer outcomes rather than internal payer/beneficiary logic.
+
+PRODUCTION FINISHING
+- Correct public email: info@facktsafrica.co.ke
+- Correct address: 3rd Floor, Krishna Centre, E05, Westlands, Nairobi, Kenya
+- Added site metadata, OpenGraph/Twitter metadata, sitemap, robots and Organization structured data.
+- Added a branded 404 page.
+- Added a basic spam honeypot to the contact form.
+- Contact form can send server-side email using Resend once RESEND_API_KEY and CONTACT_FROM_EMAIL are set in Vercel.
+- If email delivery is not configured, the form does not falsely claim success; it gives a direct-email fallback.
+
+IMPORTANT
+No made-up audience, player, artist, event or commercial metrics have been added. When confirmed figures are available, they can be added as a factual proof layer without changing the site architecture.

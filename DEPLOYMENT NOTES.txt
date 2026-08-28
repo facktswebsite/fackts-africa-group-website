@@ -1,0 +1,23 @@
+FACKTS AFRICA GROUP — DEPLOYMENT NOTES
+
+Platform routing
+- Corporate: https://www.facktsafrica.co.ke
+- Hoops: https://hoops.facktsafrica.co.ke
+- Hoops player profiles: https://hoops.facktsafrica.co.ke/players
+- Hoops YouTube: https://www.youtube.com/@facktshoops
+- Music: https://music.facktsafrica.co.ke
+- Live music profile example: https://music.facktsafrica.co.ke/people/27ccbdf0-6561-4c13-a846-3844c2deab40
+
+Contact form
+The form is wired for real server-side email delivery through Resend without adding another npm package.
+
+In Vercel:
+1. Open the FACKTS website project.
+2. Settings -> Environment Variables.
+3. Add RESEND_API_KEY.
+4. Add CONTACT_FROM_EMAIL, for example: FACKTS Website <website@facktsafrica.co.ke>
+5. In Resend, verify the facktsafrica.co.ke sending domain.
+6. Redeploy.
+
+Destination inbox is already set in code to info@facktsafrica.co.ke.
+If email delivery is not configured or fails, the website shows a direct-email fallback instead of falsely saying the message was received.

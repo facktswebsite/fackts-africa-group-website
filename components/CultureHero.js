@@ -38,7 +38,7 @@ export default function CultureHero() {
         <h1 className="mega">CULTURE DOESN&apos;T SIT STILL.</h1>
       </div>
       <div className="hero-bottom">
-        <p>Hoops. Music. People. Experiences. One African culture group building the environments where the worlds meet.</p>
+        <p>FACKTS Africa Group builds basketball, music and live culture platforms that make African talent, communities and experiences more visible, structured and valuable.</p>
         <Link href="#worlds" className="hero-enter">Explore FACKTS <b>↓</b></Link>
       </div>
     </div>
