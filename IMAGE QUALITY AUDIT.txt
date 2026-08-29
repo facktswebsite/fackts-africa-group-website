@@ -1,0 +1,52 @@
+FACKTS AFRICA WEBSITE — HOMEPAGE IMAGE QUALITY AUDIT
+Date: 2026-08-29
+
+SCOPE
+Homepage only. The existing layout and media hierarchy were retained.
+
+WHAT CHANGED
+• Major homepage source assets were rebuilt from the highest-resolution originals available.
+• Large homepage visuals now use 3000px-wide source WebP files where the originals support it.
+• No low-resolution image is upscaled to create these 3000px assets.
+• The first large Archive story previously relied on a 1500px-wide source; it now uses a 3000px-wide court archive source.
+• Next.js image delivery is configured for responsive AVIF/WebP output, including high-density desktop widths up to 2880px.
+• Major homepage <Image> components use quality=90 and explicit sizes rules for desktop/tablet/mobile.
+• object-fit: cover is retained to preserve aspect ratio; crop positions are tuned per major section.
+• Presentation-time zoom was reduced so images are not unnecessarily softened by CSS scaling.
+• Heavy filters were removed/reduced on the hero and brand imagery.
+• Editorial frames, subtle radii, restrained overlays and shadows remain so images feel deliberate rather than raw.
+
+HOMEPAGE SOURCE ASSET AUDIT — AFTER
+Hero / court contest                 3000 × 1684
+Hoops editorial / court action       3000 × 1684
+Music editorial / studio session     3000 × 2000
+Featured Watch / court run           3000 × 1684
+Featured Watch / court embrace       3000 × 1684
+Featured Watch / artist blue         3000 × 2000
+VERSUS / court crew                   3000 × 1684
+VERSUS / artist duo                   3000 × 2000
+People / studio group                 3000 × 2000
+Archive / court archive               3000 × 1684
+Archive / booth mic                   3000 × 2000
+Archive / artist group                3000 × 2000
+Partner panel / culture crowd         3000 × 2000
+OpenGraph / sharing image             2400 × 1347
+
+NOTABLE PREVIOUS SOURCE SIZES
+Hero / court contest                 1800 × 1010
+Hoops editorial / court action       1800 × 1010
+Music editorial / studio session     1800 × 1200
+Featured Watch / court run           1800 × 1010
+People / studio group                 1800 × 1200
+Archive first story / court walk     1500 × 1000
+Partner panel / culture crowd         1800 × 1200
+
+NEXT.JS DELIVERY
+formats: AVIF + WebP
+device sizes: 640, 750, 828, 1080, 1200, 1440, 1600, 1920, 2560, 2880
+accepted quality values: 75, 86, 88, 90, 92
+major homepage quality: 90
+image cache TTL: 30 days
+
+IMPORTANT
+The source images remain high quality in the repository, but Vercel/Next.js serves appropriately sized optimized derivatives to each device. This avoids shipping a 3000px image to every phone while preserving detail on larger displays.

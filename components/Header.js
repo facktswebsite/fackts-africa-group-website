@@ -57,7 +57,7 @@ export default function Header() {
         <Link href="/partners">Partners ↗</Link>
       </nav>
       <div />
-      <div className="drawer-foot">FACKTS AFRICA GROUP · HOOPS × MUSIC × PEOPLE × EXPERIENCES</div>
+      <div className="drawer-foot">PLATFORMS FOR BASKETBALL & MUSIC · KENYA → AFRICA</div>
     </div>
   </>;
 }

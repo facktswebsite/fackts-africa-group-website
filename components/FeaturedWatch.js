@@ -47,8 +47,8 @@ export default function FeaturedWatch({ items, youtubeChannelUrl }) {
               src={item.image}
               alt=""
               fill
-              quality={88}
-              sizes={index === 0 ? "(max-width: 820px) 100vw, 58vw" : "(max-width: 820px) 100vw, 31vw"}
+              quality={90}
+              sizes={index === 0 ? "(max-width: 820px) calc(100vw - 26px), (max-width: 1600px) 56vw, 820px" : "(max-width: 820px) calc(100vw - 26px), (max-width: 1600px) 34vw, 500px"}
             />
             <div className="watch-thumb-overlay" />
             {isVideo && <span className="watch-play" aria-hidden="true"><i /></span>}

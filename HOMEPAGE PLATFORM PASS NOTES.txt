@@ -1,0 +1,17 @@
+FACKTS AFRICA GROUP — PLATFORM-FIRST HOMEPAGE PASS
+29 August 2026
+
+What changed
+- Homepage positioning now leads with FACKTS as a platform group, not a media company.
+- Hoops and Music are deliberately separated visually and in copy.
+- Removed the mixed Hoops + Music VERSUS image collage from the homepage.
+- Removed the media-heavy Featured Watch wall and Stories wall from the homepage.
+- Proof now routes into the actual Hoops and Music platforms instead of dominating the corporate homepage.
+- FACKTS properties are presented as upcoming formats built on top of the platforms.
+- People section is text-first until admin has confirmed portraits.
+- Partnership section is outcome-led and platform-led.
+- Homepage image slots are centralized in lib/content.js as homeMedia for future admin/CMS control.
+- Menu/footer interface typography now uses Barlow instead of the previous generic/mono treatment.
+
+Font note
+Acumin is proprietary Adobe software and is not bundled with this project. The interface uses Barlow as the current distinctive licensed web-safe replacement. If an Adobe Fonts kit for Acumin is supplied later, the --font-ui layer can be swapped without redesigning the site.
