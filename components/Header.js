@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -9,7 +8,7 @@ import { usePathname } from "next/navigation";
 const links = [
   ["Hoops", "/hoops"],
   ["Music", "/music"],
-  ["Stories", "/stories"],
+  ["Originals", "/originals"],
   ["Experiences", "/experiences"],
   ["People", "/people"],
   ["About", "/about"],
@@ -21,43 +20,83 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 40);
+    const onScroll = () => setSolid(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
-  return <>
-    <header className={`site-header ${solid ? "is-solid" : ""}`}>
-      <div className="shell nav-shell">
-        <Link className="brand-mark" href="/" aria-label="FACKTS Africa Group home">
-          <Image src="/fackts/brand/logo.png" width={52} height={52} alt="FACKTS Africa Group" priority />
-          <span className="brand-words">
-            <strong>FACKTS AFRICA GROUP</strong>
-            <span>AFRICA GROUP · KENYA</span>
-          </span>
-        </Link>
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {links.map(([label, href]) => (
-            <Link className={pathname === href || pathname.startsWith(`${href}/`) ? "active" : ""} key={href} href={href}>{label}</Link>
-          ))}
-        </nav>
+  const active = (href) => pathname === href || pathname.startsWith(`${href}/`);
 
-        <Link className="nav-cta" href="/partners">Partner with us <span>↗</span></Link>
-        <button className="menu-toggle" type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(v => !v)}>{open ? "×" : "☰"}</button>
+  return (
+    <>
+      <header className={`site-header turnaround-header ${solid ? "is-solid" : ""}`}>
+        <div className="nav-shell turnaround-nav-shell">
+          <Link className="brand-mark turnaround-brand" href="/" aria-label="FACKTS Africa Group home">
+            <span className="brand-signal">
+              <span className="brand-signal-ring" />
+              <Image src="/fackts/brand/logo.png" width={48} height={48} alt="FACKTS Africa Group" priority />
+            </span>
+            <span className="brand-words">
+              <strong>FACKTS AFRICA GROUP</strong>
+              <span>NAIROBI, KENYA</span>
+            </span>
+          </Link>
+
+          <nav className="desktop-nav turnaround-desktop-nav" aria-label="Primary navigation">
+            {links.map(([label, href]) => (
+              <Link className={active(href) ? "active" : ""} key={href} href={href}>
+                <span>{label}</span>
+              </Link>
+            ))}
+          </nav>
+
+          <div className="turnaround-header-actions">
+            <Link className="nav-cta turnaround-nav-cta" href="/partners">
+              Partner <span>↗</span>
+            </Link>
+            <button
+              className={`menu-toggle turnaround-menu-toggle ${open ? "is-open" : ""}`}
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((value) => !value)}
+            >
+              <span /><span />
+            </button>
+          </div>
+        </div>
+        <div className="header-signal-line" aria-hidden="true"><span /></div>
+      </header>
+
+      <div className={`turnaround-drawer ${open ? "open" : ""}`} aria-hidden={!open}>
+        <div className="turnaround-drawer-backdrop" />
+        <div className="turnaround-drawer-inner">
+          <div className="drawer-index">NAV / FACKTS AFRICA GROUP</div>
+          <nav aria-label="Mobile navigation">
+            {links.map(([label, href], index) => (
+              <Link key={href} href={href} className={active(href) ? "active" : ""}>
+                <small>{String(index + 1).padStart(2, "0")}</small>
+                <span>{label}</span>
+                <b>↗</b>
+              </Link>
+            ))}
+          </nav>
+          <div className="turnaround-drawer-foot">
+            <Link href="/partners">Build with FACKTS ↗</Link>
+            <span>NAIROBI, KENYA</span>
+          </div>
+        </div>
       </div>
-    </header>
-
-    <div className={`mobile-drawer ${open ? "open" : ""}`} aria-hidden={!open}>
-      <nav aria-label="Mobile navigation">
-        {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
-        <Link href="/partners">Partners ↗</Link>
-      </nav>
-      <div />
-      <div className="drawer-foot">PLATFORMS FOR BASKETBALL & MUSIC · KENYA → AFRICA</div>
-    </div>
-  </>;
+    </>
+  );
 }

@@ -3,318 +3,41 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/content";
 
 export const metadata = {
-  title: {
-    absolute:
-      "FACKTS Music | Artists, Producers & Music Projects in Kenya",
-  },
-
-  description:
-    "FACKTS Music connects artists, producers, engineers, studios and creative projects through profiles, sessions, credits, discovery and music culture in Kenya.",
-
-  alternates: {
-    canonical: "/music",
-  },
-
-  openGraph: {
-    title:
-      "FACKTS Music | Artists, Producers & Music Projects in Kenya",
-    description:
-      "Explore FACKTS Music, connecting artists, producers, engineers, studios and creative projects through sessions, profiles, credits and music discovery.",
-    url: `${siteConfig.website}/music`,
-    siteName: "FACKTS Africa Group",
-    images: [
-      {
-        url: "/fackts/music/hero-booth.webp",
-        width: 1200,
-        height: 630,
-        alt: "FACKTS Music artist recording in a studio",
-      },
-    ],
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "FACKTS Music | Artists, Producers & Music Projects in Kenya",
-    description:
-      "Artists, producers, studios, sessions, creative projects and music culture through FACKTS Music.",
-    images: ["/fackts/music/hero-booth.webp"],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-  },
+  title: { absolute: "FACKTS Music | Artists, Producers & Music Projects in Kenya" },
+  description: "FACKTS Music is a creative operating platform connecting artists, producers, engineers, projects, sessions, credits and public creator identities.",
+  alternates: { canonical: "/music" },
 };
 
+const pillars = [
+  ["01", "Creator profiles", "Public creator identities for artists, producers, engineers, songwriters and the wider creative room."],
+  ["02", "Projects & sessions", "A shared place for the people, beats, tracks, studio sessions, actions and decisions around a music project."],
+  ["03", "Credits & contribution", "A clearer record of who actually contributed to the work, instead of losing creative history inside chats and memory."],
+  ["04", "Discovery & opportunity", "A foundation for people, studios, partners and audiences to discover creators through real work and public identity."],
+];
+
 export default function MusicPage() {
-  return (
-    <main>
-      <section className="page-hero">
-        <div className="page-hero-media">
-          <Image
-            src="/fackts/music/hero-booth.webp"
-            alt="Artist recording at a studio microphone for FACKTS Music"
-            fill
-            priority
-            sizes="100vw"
-          />
-        </div>
+  return <main className="vertical-page-v41 music-page-v41">
+    <section className="vertical-hero-v41">
+      <div className="vertical-hero-copy-v41">
+        <div className="eyebrow">FACKTS Music / creative platform</div>
+        <h1>THE SONG IS THE OUTPUT. THE SYSTEM AROUND IT MATTERS TOO.</h1>
+        <p>FACKTS Music is the creative operating platform inside FACKTS Africa Group — connecting creators, projects, beats, sessions, credits and public identities around real music work.</p>
+        <div className="vertical-hero-actions-v41"><a href={siteConfig.musicPlatform}>Enter FACKTS Music ↗</a><a href={`${siteConfig.musicPlatform}/creators`}>Explore creators ↗</a></div>
+      </div>
+      <div className="vertical-hero-photo-v41">
+        <Image src="/fackts/music/music-hero-v41.webp" alt="Creators working inside a FACKTS Music studio environment" fill priority quality={92} sizes="(max-width: 980px) 100vw, 50vw" />
+        <span>FACKTS MUSIC / KENYA</span>
+      </div>
+    </section>
 
-        <div className="music-hero-rec">
-          ● REC / FACKTS MUSIC
-        </div>
+    <section className="vertical-definition-v41"><div className="shell vertical-two-col-v41"><div><div className="eyebrow">What it is</div><h2>A working system for the people behind the sound.</h2></div><div><p>FACKTS Music is not another streaming service and it is not simply a content page. It is built for the work that happens before, during and around a release: creator identity, projects, beat development, studio sessions, collaboration, credits and public discovery.</p><p>The public-facing profiles show who creators are. The workspace helps organise what they are building.</p></div></div></section>
 
-        <div className="shell page-hero-content">
-          <div className="eyebrow">
-            FACKTS Music
-          </div>
+    <section className="vertical-pillars-v41"><div className="shell"><div className="eyebrow">Inside FACKTS Music</div><div className="vertical-pillar-list-v41">{pillars.map(([n, title, copy]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
 
-          <h1 className="section-title page-title">
-            EVERY SOUND HAS A STORY.
-          </h1>
+    <section className="vertical-audience-v41"><div className="shell"><div className="vertical-two-col-v41"><div><div className="eyebrow">Who it helps</div><h2>The whole creative room can have context.</h2></div><div className="vertical-audience-grid-v41"><div><strong>Artists</strong><p>Identity, projects, feedback and a visible record of work.</p></div><div><strong>Producers & engineers</strong><p>Clearer contribution, sessions, beats, credits and professional visibility.</p></div><div><strong>Studios & project leads</strong><p>A better way to coordinate people, work and progress.</p></div><div><strong>Partners & audiences</strong><p>A more credible route into creator discovery and real project activity.</p></div></div></div></div></section>
 
-          <p className="body-xl page-desc">
-            The artist is visible. The producer, engineer, studio, project and
-            creative system around the sound deserve visibility too.
-          </p>
+    <section className="vertical-why-v41"><div className="shell vertical-two-col-v41"><div><div className="eyebrow">Why FACKTS built it</div><h2>Creative work is collaborative. The systems around it are often fragmented.</h2></div><div><p>Music projects commonly live across WhatsApp chats, folders, studio conversations, personal notes and social media. That makes it difficult to preserve decisions, recognise contribution and turn activity into a professional record.</p><p>FACKTS Music brings that movement into one environment while keeping the human side of music visible. Media, interviews and documentaries can then tell the story of work that already has structure behind it.</p></div></div></section>
 
-          <div style={{ marginTop: 28 }}>
-            <a
-              className="btn-line"
-              href={siteConfig.musicPlatform}
-            >
-              Open FACKTS Music{" "}
-              <span className="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="music-console">
-        <div className="console-copy">
-          <div className="eyebrow">
-            Session view
-          </div>
-
-          <h2
-            className="section-title"
-            style={{ marginTop: 18 }}
-          >
-            THE BOOTH IS A REAL PLACE.
-          </h2>
-
-          <p className="body-xl">
-            FACKTS Music starts from the room, the people, the process and the
-            credits — then connects that work to discovery and a wider project
-            world.
-          </p>
-
-          <div className="timeline">
-            <div className="timeline-row">
-              <span className="time">00:00</span>
-              <b>ARTIST ENTERS THE ROOM</b>
-              <span className="tag">SESSION</span>
-            </div>
-
-            <div className="timeline-row">
-              <span className="time">00:42</span>
-              <b>PRODUCER BUILDS THE WORLD</b>
-              <span className="tag">BEAT</span>
-            </div>
-
-            <div className="timeline-row">
-              <span className="time">01:18</span>
-              <b>CAMERA CATCHES THE PROCESS</b>
-              <span className="tag">STORY</span>
-            </div>
-
-            <div className="timeline-row">
-              <span className="time">02:04</span>
-              <b>THE CREDITS BECOME VISIBLE</b>
-              <span className="tag">CULTURE</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="console-image">
-          <Image
-            src="/fackts/music/studio-gear.webp"
-            alt="Music production equipment inside a FACKTS Music studio session"
-            fill
-            sizes="(max-width:1180px) 100vw, 50vw"
-          />
-        </div>
-      </section>
-
-      <section className="booth-gallery">
-        <div className="shell">
-          <div className="eyebrow">
-            Inside the room
-          </div>
-
-          <h2
-            className="section-title"
-            style={{ marginTop: 18 }}
-          >
-            PEOPLE BEFORE PLAYLISTS.
-          </h2>
-
-          <div className="booth-grid">
-            <div className="big-shot">
-              <Image
-                src="/fackts/music/booth-mic.webp"
-                alt="Music creative recording inside a studio booth"
-                fill
-                sizes="(max-width:1180px) 100vw, 58vw"
-              />
-            </div>
-
-            <div className="stack">
-              <div className="small-shot">
-                <Image
-                  src="/fackts/music/studio-session.webp"
-                  alt="Artists and producers working during a music studio session"
-                  fill
-                  sizes="(max-width:1180px) 100vw, 42vw"
-                />
-              </div>
-
-              <div className="small-shot">
-                <Image
-                  src="/fackts/music/artist-duo.webp"
-                  alt="Music creatives featured by FACKTS Music"
-                  fill
-                  sizes="(max-width:1180px) 100vw, 42vw"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="music-proof-strip">
-        <div className="shell music-proof-grid">
-          <div>
-            <div className="eyebrow">
-              Interviews / sessions / projects
-            </div>
-
-            <h2
-              className="section-title"
-              style={{ marginTop: 18 }}
-            >
-              THE EVIDENCE LIVES IN THE MUSIC WORLD.
-            </h2>
-          </div>
-
-          <div>
-            <p className="body-xl text-muted">
-              The corporate site does not need to duplicate every artist
-              interview or creator profile. FACKTS Music is the living
-              destination for that material as the archive grows.
-            </p>
-
-            <div className="evidence-links">
-              <a
-                className="btn-line"
-                href={siteConfig.musicPlatform}
-              >
-                Explore FACKTS Music{" "}
-                <span className="arrow">↗</span>
-              </a>
-
-              <a
-                className="quiet-link"
-                href={siteConfig.musicProfileExample}
-              >
-                View a live creator profile ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="credit-roll">
-        <div className="shell">
-          <div className="eyebrow">
-            Credits Roll
-          </div>
-
-          <h2
-            className="section-title"
-            style={{ marginTop: 18 }}
-          >
-            IF THEIR WORK IS EVERYWHERE, THEIR NAME SHOULD BE TOO.
-          </h2>
-
-          <div className="credit-list">
-            <div className="credit-row">
-              <strong>PRODUCERS</strong>
-              <span>BEATS / ARRANGEMENT / SOUND</span>
-              <span>VISIBLE</span>
-            </div>
-
-            <div className="credit-row">
-              <strong>ENGINEERS</strong>
-              <span>RECORD / MIX / MASTER</span>
-              <span>VISIBLE</span>
-            </div>
-
-            <div className="credit-row">
-              <strong>VIDEOGRAPHERS</strong>
-              <span>FRAME / LIGHT / MOVEMENT</span>
-              <span>VISIBLE</span>
-            </div>
-
-            <div className="credit-row">
-              <strong>CREATIVE DIRECTORS</strong>
-              <span>WORLD / LANGUAGE / POSITION</span>
-              <span>VISIBLE</span>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 32 }}>
-            <Link
-              href="/stories/credits-roll"
-              className="btn-line"
-            >
-              Explore Credits Roll{" "}
-              <span className="arrow">→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="final-cta">
-        <div className="inner">
-          <div className="meta">
-            FACKTS MUSIC
-          </div>
-
-          <h2 className="section-title final-title">
-            BUILD THE WORLD AROUND THE SOUND.
-          </h2>
-
-          <div className="final-links">
-            <a
-              className="primary"
-              href={siteConfig.musicPlatform}
-            >
-              Enter FACKTS Music ↗
-            </a>
-
-            <Link href="/partners">
-              Build a music partnership
-            </Link>
-
-            <Link href="/stories">
-              Open music stories
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+    <section className="vertical-final-v41"><div className="shell"><div><div className="eyebrow">FACKTS Music</div><h2>Build the music. Keep the people, work and credits connected.</h2></div><div><a href={siteConfig.musicPlatform}>Open FACKTS Music ↗</a><a href={`${siteConfig.musicPlatform}/creators`}>Creator directory ↗</a><Link href="/partners">Build a music partnership ↗</Link></div></div></section>
+  </main>;
 }
