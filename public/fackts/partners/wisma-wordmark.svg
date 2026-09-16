@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Wisma Insurance Agency</title>
+  <desc id="desc">Text lock-up used until the official Wisma logo asset is supplied.</desc>
+  <rect width="900" height="300" fill="none"/>
+  <text x="450" y="142" text-anchor="middle" fill="#111111" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="104" letter-spacing="8">WISMA</text>
+  <line x1="235" x2="665" y1="174" y2="174" stroke="#111111" stroke-width="3"/>
+  <text x="450" y="225" text-anchor="middle" fill="#555555" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="34" letter-spacing="7">INSURANCE AGENCY</text>
+</svg>

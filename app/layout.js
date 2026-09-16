@@ -1,5 +1,6 @@
 import "./globals.css";
 import "./turnaround.css";
+import "./institutional.css";
 import { Archivo, Manrope } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -26,23 +27,36 @@ export const metadata = {
     default: "FACKTS Africa Group | Sports, Music & Culture Platforms in Kenya",
     template: "%s | FACKTS Africa Group",
   },
-  description: "FACKTS Africa builds platforms, experiences and systems for basketball, music and African youth culture, connecting talent, teams, events and partners across Kenya.",
+  description:
+    "FACKTS Africa builds platforms, experiences and systems for basketball, music and African youth culture, connecting talent, teams, events and partners across Kenya.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "FACKTS Africa Group | Sports, Music & Culture Platforms in Kenya",
-    description: "FACKTS Africa builds platforms, experiences and systems for basketball, music and African youth culture, connecting talent, teams, events and partners across Kenya.",
+    description:
+      "FACKTS Africa builds platforms, experiences and systems for basketball, music and African youth culture, connecting talent, teams, events and partners across Kenya.",
     url: siteConfig.website,
     siteName: "FACKTS Africa Group",
-    images: [{ url: "/fackts/brand/hero-main.jpg", width: 2400, height: 1347, alt: "FACKTS Africa Group" }],
+    images: [
+      {
+        url: "/fackts/brand/hero-main.jpg",
+        width: 2400,
+        height: 1347,
+        alt: "FACKTS Africa Group",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "FACKTS Africa Group | Sports, Music & Culture Platforms in Kenya",
-    description: "FACKTS Africa builds platforms, experiences and systems for basketball, music and African youth culture.",
+    description:
+      "FACKTS Africa builds platforms, experiences and systems for basketball, music and African youth culture.",
     images: ["/fackts/brand/hero-main.jpg"],
   },
-  icons: { icon: "/fackts/brand/logo.png", apple: "/fackts/brand/logo.png" },
+  icons: {
+    icon: "/fackts/brand/logo.png",
+    apple: "/fackts/brand/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -76,8 +90,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${archivo.variable} ${manrope.variable}`}>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+
         <SiteMotion />
         <Header />
         {children}
