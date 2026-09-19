@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { randomUUID } from "node:crypto";
+import { deliverWebsiteEnquiryToCrm } from "@/lib/fackts-crm";
 
 const recipient = "info@facktsafrica.co.ke";
 
@@ -35,10 +37,23 @@ export async function POST(request) {
     }
     if (!/^\S+@\S+\.\S+$/.test(data.email)) return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
 
+    // Accept stable client-generated event IDs for safe form retries.
+    const submittedId = clean(input.submissionId);
+    const eventId = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(submittedId) ? submittedId : randomUUID();
+    let crmSynced = false;
+    try {
+      await deliverWebsiteEnquiryToCrm(data, eventId);
+      crmSynced = true;
+    } catch (error) {
+      console.error("FACKTS GROUP WEBSITE CRM DELIVERY ERROR:", error instanceof Error ? error.message : String(error));
+    }
+
     const apiKey = process.env.RESEND_API_KEY;
     const from = process.env.CONTACT_FROM_EMAIL || "FACKTS Website <website@facktsafrica.co.ke>";
     if (!apiKey) {
-      return NextResponse.json({ ok: false, error: "Email delivery is not configured." }, { status: 503 });
+      return crmSynced
+        ? NextResponse.json({ ok: true, crmSynced, emailSent: false })
+        : NextResponse.json({ ok: false, crmSynced: false, error: "Enquiry delivery is temporarily unavailable." }, { status: 503 });
     }
 
     const response = await fetch("https://api.resend.com/emails", {
@@ -56,10 +71,12 @@ export async function POST(request) {
     if (!response.ok) {
       const details = await response.text();
       console.error("FACKTS CONTACT DELIVERY ERROR", details);
-      return NextResponse.json({ ok: false, error: "Email delivery failed." }, { status: 502 });
+      return crmSynced
+        ? NextResponse.json({ ok: true, crmSynced, emailSent: false })
+        : NextResponse.json({ ok: false, crmSynced: false, error: "Enquiry delivery is temporarily unavailable." }, { status: 502 });
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, crmSynced, emailSent: true });
   } catch (error) {
     console.error("FACKTS CONTACT ERROR", error);
     return NextResponse.json({ ok: false, error: "Invalid request" }, { status: 400 });
