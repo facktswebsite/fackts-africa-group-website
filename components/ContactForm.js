@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const inbox = "info@facktsafrica.co.ke";
 
 export default function ContactForm() {
   const [status, setStatus] = useState("");
   const [fallbackUrl, setFallbackUrl] = useState("");
+  const submissionId = useRef("");
 
   async function submit(event) {
     event.preventDefault();
@@ -15,7 +16,8 @@ export default function ContactForm() {
 
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
-    const body = Object.fromEntries(form.entries());
+    if (!submissionId.current) submissionId.current = crypto.randomUUID();
+    const body = { ...Object.fromEntries(form.entries()), submissionId: submissionId.current };
     const subject = encodeURIComponent(
       `FACKTS website inquiry — ${body.interest || "General"}`
     );
@@ -32,8 +34,17 @@ export default function ContactForm() {
       });
 
       if (!response.ok) throw new Error("Request failed");
-
-      setStatus("Received. The inquiry has been sent to FACKTS Africa Group.");
+      const result = await response.json();
+      if (result.crmSynced && result.emailSent) {
+        setStatus("Received. Your enquiry is in the FACKTS Africa CRM and an email notification was sent.");
+      } else if (result.crmSynced) {
+        setStatus("Received. Your enquiry is in the FACKTS Africa CRM. Email notification is temporarily unavailable.");
+      } else if (result.emailSent) {
+        setStatus("Your enquiry was emailed to FACKTS Africa. The CRM connection is temporarily unavailable; the team will follow up from email.");
+      } else {
+        throw new Error("Delivery not confirmed");
+      }
+      submissionId.current = "";
       formElement.reset();
     } catch {
       setStatus(
