@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 const links = [
   ["Hoops", "/hoops"],
   ["Music", "/music"],
-  ["OS", "/os"],
   ["Originals", "/originals"],
   ["Experiences", "/experiences"],
   ["People", "/people"],
